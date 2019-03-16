@@ -2,9 +2,7 @@
 
 Daniel: 
 
-Robert: Create AJAX calls to food API
-Create AJAX calls to exercise API
-Research data collection and output
+Robert: Display information on page
 */
 
 $('.carousel.carousel-slider').carousel({
@@ -22,8 +20,15 @@ $.ajax({
     url: foodQueryUrl,
     method: "GET"
 }).then(function(response){
+    responseArr = response.hits;
+    console.log(responseArr[1])
 
-    console.log(response);
+    for (i=0; i<responseArr.length; i++) {
+       var newImg = $("<img>");
+        
+        newImg.attr("src", responseArr[i].recipe.image);
+        $("#meal-div").append(newImg);
+    }
 
 }, function(err) {
     console.log("error received:" + err)
@@ -32,14 +37,21 @@ $.ajax({
 
 //exercise api call
 var exerciseId = 10;
-var exerciseQueryUrl = "https://wger.de/api/v2/exercise/?language=2&format=json&exercisecategory=" + exerciseId + "&status=2";
+var exerciseQueryUrl = "https://wger.de/api/v2/exercise/?language=2&format=json&category=" + exerciseId + "&status=2";
+var exerciseImg = "https://wger.de/api/v2/exerciseimage/"
 
 $.ajax({
     url: exerciseQueryUrl,
     method: "GET"
 }).then(function(response){
-
-    console.log(response);
+    console.log(response)
+    
+    for (i=0; i<3; i++) {
+    var newExercise = $("<div>");
+    newExercise.html(response.results[i].description);
+    $("#workouts-div").append(newExercise);
+    ;
+    }
 
 }, function(err) {
     console.log("error received:" + err)
