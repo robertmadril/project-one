@@ -4,12 +4,25 @@ Daniel:
 
 Robert: Display information on page
 */
+$(document).ready(function(){
 
 $('.carousel.carousel-slider').carousel({
     fullWidth: true,
     indicators: true
   });
 
+//Functions for slider
+
+$("#start-button").on("click", function(){
+    $('.carousel').carousel('next')
+   
+});
+
+
+
+$("#lose-button").on("click", function(){
+    var result = ($(this).attr("value"));
+    });
 
 //food api call
 var foodKey = "857e05a4f7c6d5050482bf2837e74da2";
@@ -56,3 +69,4 @@ $.ajax({
 }, function(err) {
     console.log("error received:" + err)
 })
+});
