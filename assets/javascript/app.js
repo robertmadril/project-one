@@ -12,15 +12,33 @@ $('.carousel.carousel-slider').carousel({
     indicators: true
   });
 
-var key = "857e05a4f7c6d5050482bf2837e74da2"
-var id = "102f2f2e"
-var queryurl = "https://api.edamam.com/search?q=breakfast&app_id=" + id + "&app_key=" + key + "&from=0&to=3&calories=591-722";
+
+//food api call
+var foodKey = "857e05a4f7c6d5050482bf2837e74da2";
+var foodId = "102f2f2e";
+var foodQueryUrl = "https://api.edamam.com/search?q=breakfast&app_id=" + foodId + "&app_key=" + foodKey + "&from=0&to=3&calories=591-722";
+
 $.ajax({
-    url: queryurl,
+    url: foodQueryUrl,
     method: "GET"
 }).then(function(response){
-;
-    console.log(queryurl)
+
+    console.log(response);
+
+}, function(err) {
+    console.log("error received:" + err)
+})
+
+
+//exercise api call
+var exerciseId = 10;
+var exerciseQueryUrl = "https://wger.de/api/v2/exercise/?language=2&format=json&exercisecategory=" + exerciseId + "&status=2";
+
+$.ajax({
+    url: exerciseQueryUrl,
+    method: "GET"
+}).then(function(response){
+
     console.log(response);
 
 }, function(err) {
