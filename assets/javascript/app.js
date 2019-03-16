@@ -20,8 +20,8 @@ $.ajax({
     url: foodQueryUrl,
     method: "GET"
 }).then(function(response){
+    console.log(response);
     responseArr = response.hits;
-    console.log(responseArr[1])
 
     for (i=0; i<responseArr.length; i++) {
        var newImg = $("<img>");
@@ -38,7 +38,7 @@ $.ajax({
 //exercise api call
 var exerciseId = 10;
 var exerciseQueryUrl = "https://wger.de/api/v2/exercise/?language=2&format=json&category=" + exerciseId + "&status=2";
-var exerciseImg = "https://wger.de/api/v2/exerciseimage/"
+var exerciseImg = "https://wger.de/api/v2/exerciseimage/";
 
 $.ajax({
     url: exerciseQueryUrl,
