@@ -20,9 +20,14 @@ $("#start-button").on("click", function(){
 
 
 
-$("#lose-button").on("click", function(){
+$(".goal-buttons").on("click", function(){
     var result = ($(this).attr("value"));
     });
+
+
+
+
+
 
 //food api call
 var foodKey = "857e05a4f7c6d5050482bf2837e74da2";
