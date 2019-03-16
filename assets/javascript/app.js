@@ -31,8 +31,8 @@ $.ajax({
 
 
 //exercise api call
-var exerciseKey = "";
-var exerciseQueryUrl = "";
+var exerciseId = 10;
+var exerciseQueryUrl = "https://wger.de/api/v2/exercise/?language=2&format=json&exercisecategory=" + exerciseId + "&status=2";
 
 $.ajax({
     url: exerciseQueryUrl,
