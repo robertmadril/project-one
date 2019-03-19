@@ -113,6 +113,7 @@ $(document).ready(function () {
         var calories = ($(this).attr("value"));
         getMealPlan(calories);
         getExercise();
+        $('.carousel').carousel('next')
 
 
 
