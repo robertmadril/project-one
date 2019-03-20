@@ -50,9 +50,15 @@ $(document).ready(function () {
             }
         }).done(function (response) {
             console.log(response);
-            var jQuerySelect = "#" + recipeId;
 
-            $(jQuerySelect).html(response)
+            var jQuerySelect = "#" + id;
+            var externalRecipe = $("<a>");
+            externalRecipe.attr("href", response.sourceUrl);
+            externalRecipe.attr("target", "_blank");
+            externalRecipe.html("<button>Get Recipe</button");
+
+            $(jQuerySelect).html(response.title);
+            $(jQuerySelect).append(externalRecipe);
 
 
         }).fail(function (err) {
@@ -107,6 +113,7 @@ $(document).ready(function () {
         var calories = ($(this).attr("value"));
         getMealPlan(calories);
         getExercise();
+        $('.carousel').carousel('next')
 
 
 
@@ -115,8 +122,8 @@ $(document).ready(function () {
     $("body").on("click", ".food-display", function() {
         var recipeId = $(this).attr("id");
         console.log(recipeId);
-        //Placeholder for save buttons and recipe display
-       // getRecipeInfo(recipeId);
+        //save buttons and recipe display
+        getRecipeInfo(recipeId);
 
 
     });
