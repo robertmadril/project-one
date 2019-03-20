@@ -10,6 +10,7 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
+    //global variables
     var database = firebase.database();
     var calories = "";
 
@@ -48,7 +49,7 @@ $(document).ready(function () {
 
     };
 
-    //function that will populate recipe info 
+    //function that will populate recipe info after click
     function getRecipeInfo(id) {
 
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + id + "/information/";
@@ -87,6 +88,7 @@ $(document).ready(function () {
 
     };
 
+    //ajax call to populate favorites on initial load
     function populateFavorites(id) {
 
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + id + "/information/";
@@ -144,6 +146,7 @@ $(document).ready(function () {
         })
     };
 
+    //database call to populate initial favorites
     database.ref().on("child_added", function (snapshot) {
         //hold object value
         var sv = snapshot.val();
@@ -165,7 +168,7 @@ $(document).ready(function () {
     });
 
     //button functions
-
+    //goes to next page and populate exercises
     $(".goal-buttons").on("click", function () {
         //food api call
         calories = ($(this).attr("value"));
@@ -175,11 +178,13 @@ $(document).ready(function () {
 
     });
 
+    //populates meal plan for the day
     $(".day-of-week").on("click", function () {
         var day = $(this).attr("data-value");
         getMealPlan(calories, day);
     });
 
+    //grabs recipe from API after clicking image
     $("body").on("click", ".food-display", function () {
 
         var recipeId = $(this).attr("id");
@@ -189,6 +194,7 @@ $(document).ready(function () {
 
     });
 
+    //pushes recipe ID to firebase database
     $("body").on("click", ".add-favorite", function () {
         var recipeId = $(this).attr("id");
         console.log(recipeId);
