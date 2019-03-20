@@ -1,6 +1,18 @@
 $(document).ready(function () {
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAJ7R5RZ30596-0rhCKyrWrUx97oWkGcPA",
+        authDomain: "rmm-salusys.firebaseapp.com",
+        databaseURL: "https://rmm-salusys.firebaseio.com",
+        projectId: "rmm-salusys",
+        storageBucket: "",
+        messagingSenderId: "601851303455"
+    };
+    firebase.initializeApp(config);
 
+    var database = firebase.database;
     var calories = "";
+
     //Initial food list populates on first page
     function getMealPlan(id, day) {
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&targetCalories=" + id;
@@ -53,13 +65,20 @@ $(document).ready(function () {
             console.log(response);
 
             var jQuerySelect = "#" + id;
+
             var externalRecipe = $("<a>");
             externalRecipe.attr("href", response.sourceUrl);
             externalRecipe.attr("target", "_blank");
             externalRecipe.html("<button>Get Recipe</button");
 
+            var addToFavorites = $("<button>");
+            addToFavorites.text("Add to Favorites");
+            addToFavorites.addClass("add-favorite");
+            addToFavorites.attr("id", id);
+
             $(jQuerySelect).html(response.title);
             $(jQuerySelect).append(externalRecipe);
+            $(jQuerySelect).append(addToFavorites);
 
 
         }).fail(function (err) {
@@ -68,30 +87,69 @@ $(document).ready(function () {
 
     };
 
+    function populateFavorites(id) {
+
+        var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + id + "/information/";
+
+        $.ajax({
+            method: "GET",
+            url: queryURL,
+            dataType: "json",
+            headers: {
+                'X-RapidAPI-Key': "cabf872889msh67628a4bb120a43p1a985djsn773dfb9ac0e5"
+                // 'Accept: application/json' 
+            }
+        }).done(function (response) {
+            console.log(response);
+
+                var newFood = $("<div>");
+                var foodImg = $("<img>");
+                newFood.attr("id", id);
+                newFood.addClass("food-display");
+                foodImg.attr("src", response.image);
+
+                newFood.append(response.title);
+                newFood.append(foodImg);
+
+                $("#favorite-meals").append(newFood);
+
+        }).fail(function (err) {
+            console.log(err);
+        });
+
+    }
+
     function getExercise() {
 
         //exercise api call
         var exerciseId = 10;
         var exerciseQueryUrl = "https://wger.de/api/v2/exercise/?language=2&format=json&category=" + exerciseId + "&status=2";
         var exerciseImg = "https://wger.de/api/v2/exerciseimage/";
-    
+
         $.ajax({
             url: exerciseQueryUrl,
             method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
             console.log(response)
-    
+
             for (i = 0; i < 3; i++) {
                 var newExercise = $("<div>");
                 newExercise.html(response.results[i].description);
                 $("#workouts-div").append(newExercise);
                 ;
             }
-    
-        }, function(err) {
+
+        }, function (err) {
             console.log("error received:" + err);
         })
     };
+
+    /*database.ref("/meals/").on("value", function(snapshot) {
+
+        if (snapshot.child("").exists()) {
+
+        }
+    });*/
 
     //carousel functionality for materialize
     $('.carousel.carousel-slider').carousel({
@@ -118,17 +176,25 @@ $(document).ready(function () {
 
     });
 
-    $(".day-of-week").on("click", function(){
+    $(".day-of-week").on("click", function () {
         var day = $(this).attr("data-value");
         getMealPlan(calories, day);
     });
 
-    $("body").on("click", ".food-display", function() {
+    $("body").on("click", ".food-display", function () {
+
         var recipeId = $(this).attr("id");
         console.log(recipeId);
         //save buttons and recipe display
         getRecipeInfo(recipeId);
 
+    });
+
+    $("body").on("click", ".add-favorite", function () {
+        var recipeId = $(this).attr("id");
+        console.log(recipeId);
+        //save buttons and recipe display
+        //send id to firebase
 
     });
 
