@@ -1,7 +1,8 @@
 $(document).ready(function () {
 
+    var calories = "";
     //Initial food list populates on first page
-    function getMealPlan(id) {
+    function getMealPlan(id, day) {
         var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&targetCalories=" + id;
 
         $.ajax({
@@ -24,8 +25,8 @@ $(document).ready(function () {
                 newFood.append(response.meals[i].title);
                 newFood.append(foodImg);
 
-
-                $("#meal-div").append(newFood);
+                var dayDiv = "#day-" + day;
+                $(dayDiv).append(newFood);
                 ;
             }
 
@@ -110,13 +111,16 @@ $(document).ready(function () {
 
     $(".goal-buttons").on("click", function () {
         //food api call
-        var calories = ($(this).attr("value"));
-        getMealPlan(calories);
+        calories = ($(this).attr("value"));
+
         getExercise();
         $('.carousel').carousel('next')
 
+    });
 
-
+    $(".day-of-week").on("click", function(){
+        var day = $(this).attr("data-value");
+        getMealPlan(calories, day);
     });
 
     $("body").on("click", ".food-display", function() {
