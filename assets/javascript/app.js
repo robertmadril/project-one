@@ -10,7 +10,7 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
-    var database = firebase.database;
+    var database = firebase.database();
     var calories = "";
 
     //Initial food list populates on first page
@@ -144,12 +144,11 @@ $(document).ready(function () {
         })
     };
 
-    /*database.ref("/meals/").on("value", function(snapshot) {
-
-        if (snapshot.child("").exists()) {
-
-        }
-    });*/
+    database.ref().on("child_added", function (snapshot) {
+        //hold object value
+        var sv = snapshot.val();
+        populateFavorites(sv);
+    });
 
     //carousel functionality for materialize
     $('.carousel.carousel-slider').carousel({
@@ -194,7 +193,7 @@ $(document).ready(function () {
         var recipeId = $(this).attr("id");
         console.log(recipeId);
         //save buttons and recipe display
-        //send id to firebase
+        database.ref().push(recipeId);
 
     });
 
