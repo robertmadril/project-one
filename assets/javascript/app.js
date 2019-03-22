@@ -142,12 +142,13 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response)
 
-            for (i = 0; i < 3; i++) {
+            for (i = 0; i < 6; i++) {
                 var newExercise = $("<div>");
-                newExercise.html(response.results[i].exerciseinfo);
-                $("#workouts-div").append(newExercise);
-
-            }
+                newExercise.html(response.results[i].name);
+                var workoutDiv = "#workout-"+ id
+                $(workoutDiv).append(newExercise);
+                
+        }
 
         }, function (err) {
             console.log("error received:" + err);
@@ -246,6 +247,7 @@ $(document).ready(function () {
 
         var exerciseId = $(this).attr("data-value")
         getExercise(exerciseId)
+        console.log(exerciseId)
 
 
     });
