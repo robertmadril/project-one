@@ -13,6 +13,7 @@ $(document).ready(function () {
     //global variables
     var database = firebase.database();
     var calories = "";
+    console.log(calories);
 
     //Initial food list populates on first page
     function getMealPlan(id, day) {
@@ -163,7 +164,7 @@ $(document).ready(function () {
     //Functions for slider
 
     $("#start-button").on("click", function () {
-        $('.carousel').carousel('next')
+        $('.slider').slider().destroy();
 
     });
 
@@ -174,7 +175,7 @@ $(document).ready(function () {
         calories = ($(this).attr("value"));
 
         getExercise();
-        $('.carousel').carousel('next')
+
 
     });
 
@@ -204,3 +205,20 @@ $(document).ready(function () {
     });
 
 });
+
+
+
+
+$(document).ready(function(){
+    $('.slider').slider();
+
+    $('.fixed-action-btn').floatingActionButton();
+    
+
+    $('.collapsible').collapsible();
+
+    $(".modal").modal();
+
+
+  });
+      

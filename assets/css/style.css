@@ -1,0 +1,37 @@
+header {
+    background-size: cover;
+    background-position: center;
+    min-height: 100px; 
+}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+
+.slider {
+  width: 1100px;
+  height: 1100px;
+}
+
+#contain-page {
+  width: 450px;
+  height: ;
+}
+
+#index1-slider1 {
+  font-size: 200px;
+}
+
+#index2-slider2 {
+  font-size: 50px;
+}
+
+

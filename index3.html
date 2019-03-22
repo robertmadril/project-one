@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="assets/css/style.css" rel="stylesheet">
+      
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+      
+          <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+      
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      
+        <title>Salusys</title>
+      </head>
+
+
+
+<body>
+
+        <header>
+            <nav class="nav-wrapper transparent">
+                <div class="container">
+                    <a href="index.html" class="brand-logo orange-text">Salusys</a>
+                </div>
+            </nav>
+        </header>
+
+        <div class="fixed-action-btn">
+      <a class="btn-floating btn-large white darken-4">
+        <i class="large material-icons grey-text">menu</i>
+      </a>
+      <ul>
+        <li><a href="index.html" class="btn-floating grey lighten-1"><i class="material-icons">home</i></a></li>
+        <li><a class="btn-floating grey darken-3"><i class="material-icons">favorite</i></a></li>
+      </ul>
+    </div>
+
+    <div class="container" id="contain-page">
+        <div class="row">
+
+            <ul class="collapsible">
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">restaurant_menu</i>Meal Plan:</div>
+                  <div class="collapsible-body"><span>
+
+                      <div id="day-1">
+                          <a href="#first" class="btn-flat waves-effect white grey-text darken-text-2 day-of-week modal-trigger" data-value="1">Monday</a>
+                          <div class="modal" id="first">
+                            <div class="modal-container">
+                            This is a test.
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="modal-close btn orange">Done & Close</a>
+                            <a href="#" class="btn orange">Add To Favorites</a>
+                          </div>
+                          </div>
+                      </div>
+
+                      <div id="day-2">
+                          <a href="#second" class="btn-flat waves-effect white grey-text darken-text-2 day-of-week modal-trigger" data-value="2">Tuesday</a>
+                          <div class="modal" id="second">
+                            <div class="modal-container">
+                            This is a test.
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="modal-close btn orange">Done & Close</a>
+                            <a href="#" class="btn orange">Add To Favorites</a>
+                          </div>
+                          </div>
+                      </div>
+
+                      <div id="day-3">
+                          <a href="#third" class="btn-flat waves-effect white grey-text darken-text-2 day-of-week modal-trigger" data-value="3">Wednesday</a>
+                          <div class="modal" id="third">
+                            <div class="modal-container">
+                            This is a test.
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="modal-close btn orange">Done & Close</a>
+                            <a href="#" class="btn orange">Add To Favorites</a>
+                          </div>
+                          </div>
+                      </div>
+
+                      <div id="day-4">
+                          <a href="#fourth" class="btn-flat waves-effect white grey-text darken-text-2 day-of-week modal-trigger" data-value="4">Thursday</a>
+                          <div class="modal" id="fourth">
+                            <div class="modal-container">
+                            This is a test.
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="modal-close btn orange">Done & Close</a>
+                            <a href="#" class="btn orange">Add To Favorites</a>
+                          </div>
+                          </div>
+                      </div>
+
+                      <div id="day-5">
+                          <a href="#fifth" class="btn-flat waves-effect white grey-text darken-text-2 day-of-week modal-trigger" data-value="5">Friday</a>
+                          <div class="modal" id="fifth">
+                            <div class="modal-container">
+                            This is a test.
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="modal-close btn orange">Done & Close</a>
+                            <a href="#" class="btn orange">Add To Favorites</a>
+                          </div>
+                          </div>
+                      </div>
+
+                      <div id="day-6">
+                          <a href="#sixth" class="btn-flat waves-effect white grey-text darken-text-2 day-of-week modal-trigger" data-value="6">Saturday</a>
+                          <div class="modal" id="sixth">
+                            <div class="modal-container">
+                            This is a test.
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="modal-close btn orange">Done & Close</a>
+                            <a href="#" class="btn orange">Add To Favorites</a>
+                          </div>
+                          </div>
+                      </div>
+
+                      <div id="day-7">
+                          <a href="#seventh" class="btn-flat waves-effect white grey-text darken-text-2 day-of-week modal-trigger" data-value="7">Sunday</a>
+                          <div class="modal" id="seventh">
+                            <div class="modal-container">
+                            This is a test.
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="modal-close btn orange">Done & Close</a>
+                            <a href="#" class="btn orange">Add To Favorites</a>
+                          </div>
+                          </div>
+                      </div>
+                    
+                  </span></div>
+                </li>
+                <li>
+                 
+              </ul>
+        </div>
+            
+        <ul class="collapsible">
+            <li>
+              <div class="collapsible-header"><i class="material-icons">fitness_center</i>Workout Plan:</div>
+              <div class="collapsible-body"><span>
+
+                  <div id="exercise-type-abs">
+                      <a href="#first1" class="btn-flat waves-effect waves-orange white grey-text darken-text-2 modal-trigger exercise-type" data-value="10">Abs</a>
+                      <div class="modal" id="first1">
+                        <div class="modal-container">
+                        This is a test.
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#" class="modal-close btn orange">Done & Close</a>
+                        <a href="#" class="btn orange">Add To Favorites</a>
+                      </div>
+                      </div>
+                  </div>
+
+                  <div id="exercise-type-arms">
+                      <a href="#second2" class="btn-flat waves-effect waves-orange white grey-text darken-text-2 modal-trigger exercise-type" data-value="8">Arms</a>
+                      <div class="modal" id="second2">
+                        <div class="modal-container">
+                        This is a test.
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#" class="modal-close btn orange">Done & Close</a>
+                        <a href="#" class="btn orange">Add To Favorites</a>
+                      </div>
+                      </div>
+                  </div>
+
+                  <div id="exercise-type-back">
+                      <a href="#third3" class="btn-flat waves-effect waves-orange white grey-text darken-text-2 modal-trigger exercise-type" data-value="12">Back</a>
+                      <div class="modal" id="third3">
+                        <div class="modal-container">
+                        This is a test.
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#" class="modal-close btn orange">Done & Close</a>
+                        <a href="#" class="btn orange">Add To Favorites</a>
+                      </div>
+                      </div>
+                  </div>
+
+                  <div id="exercise-type-calves">
+                      <a href="#fourth4" class="btn-flat waves-effect waves-orange white grey-text darken-text-2 modal-trigger exercise-type" data-value="14">Calves</a>
+                      <div class="modal" id="fourth4">
+                        <div class="modal-container">
+                        This is a test.
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#" class="modal-close btn orange">Done & Close</a>
+                        <a href="#" class="btn orange">Add To Favorites</a>
+                      </div>
+                      </div>
+                  </div>
+
+                  <div id="exercise-type-chest">
+                      <a href="#fifth5" class="btn-flat waves-effect waves-orange white grey-text darken-text-2 modal-trigger exercise-type" data-value="11">Chest</a>
+                      <div class="modal" id="fifth5">
+                        <div class="modal-container">
+                        This is a test.
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#" class="modal-close btn orange">Done & Close</a>
+                        <a href="#" class="btn orange">Add To Favorites</a>
+                      </div>
+                      </div>
+                  </div>
+
+                  <div id="exercise-type-Legs">
+                      <a href="#sixth6" class="btn-flat waves-effect waves-orange white grey-text darken-text-2 modal-trigger exercise-type" data-value="9">Legs</a>
+                      <div class="modal" id="sixth6">
+                        <div class="modal-container">
+                        This is a test.
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#" class="modal-close btn orange">Done & Close</a>
+                        <a href="#" class="btn orange">Add To Favorites</a>
+                      </div>
+                      </div>
+                  </div>
+
+                  <div id="exercise-type-shoulders">
+                      <a href="#seventh7" class="btn-flat waves-effect waves-orange white grey-text darken-text-2 modal-trigger exercise-type" data-value="13">Shoulders</a>
+                      <div class="modal" id="seventh7">
+                        <div class="modal-container">
+                        This is a test.
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#" class="modal-close btn orange">Done & Close</a>
+                        <a href="#" class="btn orange">Add To Favorites</a>
+                      </div>
+                      </div>
+                  </div>
+                
+              </span></div>
+            </li>
+            <li>
+             
+          </ul>
+
+
+          </div>
+
+    <br><br><br>
+
+        <ul class="pagination center-align">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="waves-effect"><a href="index2.html">1</a></li>
+            <li class="waves-effect"><a href="index3.html">2</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+
+        <br>
+        <br>
+
+
+        <footer class="page-footer orange darken-3">
+            <div class="container">
+              <div class="row">
+                <div class="col l8">
+                  <h5>About Us</h5>
+                  <p>Salusy was created by three really cool cats currently working to become Full Stack Developers.</p>
+                </div>
+      
+                <div class="col l4">
+                    <h5>Connect</h5>
+                    <ul>
+                      <li><a href="#" class="grey-text text-lighten-3">LinkedIn</a></li>
+                      <li><a href="#" class="grey-text text-lighten-3">Email</a></li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </footer>
+
+
+
+          <script type="text/javascript" src="assets/javascript/js/materialize.js"></script>
+          <script type="text/javascript" src="assets/javascript/app.js"></script>     
+
+</body>
+
+
+</html>
+
+
+
+
