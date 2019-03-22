@@ -118,8 +118,10 @@ $(document).ready(function () {
             newFood.attr("id", id);
             newFood.addClass("food-display");
             foodImg.attr("src", response.image);
+            foodImg.addClass("circle");
 
             newFood.append(response.title);
+            newFood.append("<br>");
             newFood.append(foodImg);
 
             $("#favorite-meals").append(newFood);
@@ -167,6 +169,7 @@ $(document).ready(function () {
     database.ref().on("child_added", function (snapshot) {
         //hold object value
         var sv = snapshot.val();
+        console.log(sv);
         populateFavorites(sv);
     });
 
