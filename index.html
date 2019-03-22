@@ -4,14 +4,16 @@
 
 <head>
 
-  <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="assets/css/css/materialize.css" media="screen,projection" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="assets/css/style.css" rel="stylesheet">
 
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
+
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,77 +23,86 @@
 
 <body>
 
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center">Fitness-Meal App</a>
+  <header>
+    <nav class="nav-wrapper transparent">
+      <div class="container">
+        <a href="index.html" class="brand-logo orange-text" id="name">Salusys</a>
+      </div>
+    </nav>
+  </header>
+
+
+  
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large white darken-4">
+      <i class="large material-icons grey-text">menu</i>
+    </a>
+    <ul>
+      <li><a href="index.html" class="btn-floating grey lighten-1"><i class="material-icons">home</i></a></li>
+      <li><a class="btn-floating grey darken-3"><i class="material-icons">favorite</i></a></li>
+    </ul>
+  </div>
+
+
+
+
+  <div class="container">
+    <div class="slider">
+      <ul class="slides transparent">
+  
+        <li>
+          <img src="#">
+          <div class="caption center-align">
+            <h3 class="orange-text darken-4" id="index1-slider1">Salusys.</h3>
+            <br>
+            <h5 class="light black-text text-lighten-3 center-align">Fitness + meal plan system. </h5>
+          </div>
+        </li>
+  
+        <li>
+            <img src="#">
+            <div class="caption center-align" id="header-slider">
+              <br><br><br><br><br>
+              <h3 class="orange-text darken-3" id="index2-slider2">Maximize your salud.</h3>
+              <h5 class="light black-text text-lighten-3"><div class="container center-align">
+                  <button class="center-align waves-effect waves-orange btn-flat black-text" id="start-button"><a href="index2.html"><i class="material-icons center">subdirectory_arrow_right</i>Let's get started</a></button>
+                </div></h5>
+            </div>
+          </li>
+  
+      </ul>
     </div>
-  </nav>
+  </div>
 
+     
 
-  <div class="carousel carousel-slider center">
+    
+<br><br>
 
-    <div class="carousel-item lime white-text" href="#one!">
-      <h2></h2>
-      <p class="white-text">The easiest way to get your fit ON!</p>
-      <div class="carousel-fixed-item center">
-        <a class="btn waves-effect white grey-text darken-text-2" id="start-button">Let's get started!</a>
+<footer class="page-footer orange darken-3">
+  <div class="container">
+    <div class="row">
+      <div class="col l8">
+        <h5>About Us</h5>
+        <p>Salusy was created by three really cool cats currently working to become Full Stack Developers.</p>
+      </div>
+
+      <div class="col l4">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="#" class="grey-text text-lighten-3">LinkedIn</a></li>
+            <li><a href="#" class="grey-text text-lighten-3">Email</a></li>
+          </ul>
       </div>
     </div>
-
-    <div class="carousel-item amber white-text" href="#two!">
-
-      <h2></h2>
-      <p class="white-text">Choose your fitness goal:</p>
-
-
-      <div class="carousel-fixed-item center">
-        <a class="btn waves-effect white grey-text darken-text-2 goal-buttons" value="1500" id="lose-button">Lose
-          Weight</a>
-        <a class="btn waves-effect white grey-text darken-text-2 goal-buttons" value="1800"
-          id="maintain-button">Maintain</a>
-        <a class="btn waves-effect white grey-text darken-text-2 goal-buttons" value="2100" id="build-button">Build
-          Muscle</a>
-      </div>
-
-    </div>
-
-    <div class="carousel-item blue white-text" href="#three!">
-      <h2></h2>
-      <p class="white-text">Your customized fitness and meal plan:</p>
-      <div class="row">
-        <div class="col s7 push-s5" id="meal-div"><span class="flow-text">Meals:</span>
-          <div id="day-1">
-            <div class="btn waves-effect white grey-text darken-text-2 day-of-week" data-value="1">Monday</div>
-          </div>
-          <div id="day-2">
-            <div class="btn waves-effect white grey-text darken-text-2 day-of-week" data-value="2">Tuesday</div>
-          </div>
-          <div id="day-3">
-            <div class="btn waves-effect white grey-text darken-text-2 day-of-week" data-value="3">Wednesday</div>
-          </div>
-          <div id="day-4">
-            <div class="btn waves-effect white grey-text darken-text-2 day-of-week" data-value="4">Thursday</div>
-          </div>
-          <div id="day-5">
-            <div class="btn waves-effect white grey-text darken-text-2 day-of-week" data-value="5">Friday</div>
-          </div>
-          <div id="day-6">
-            <div class="btn waves-effect white grey-text darken-text-2 day-of-week" data-value="6">Saturday</div>
-          </div>
-          <div id="day-7">
-            <div class="btn waves-effect white grey-text darken-text-2 day-of-week" data-value="7">Sunday</div>
-          </div>
-          <div class="col s5 pull-s7" id="workouts-div"><span class="flow-text">Workouts:</span></div>
-        </div>
-
-      </div>
-
-    </div>
+  </div>
+</footer>
 
 
 
     <script type="text/javascript" src="assets/javascript/js/materialize.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </body>
 
 </html>
