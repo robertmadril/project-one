@@ -4,52 +4,66 @@
 
 <head>
 
+  <!-- Google fonts for icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <!-- Compiled and minified CSS Materialize CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  
   <link href="assets/css/style.css" rel="stylesheet">
 
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+     <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <title>Salusys</title>
+
 </head>
 
 <body>
 
   <header>
+    <div class="col s12">
     <nav class="nav-wrapper transparent">
       <div class="container">
         <a href="index.html" class="brand-logo orange-text" id="name">Salusys</a>
       </div>
     </nav>
+  </div>
   </header>
 
 
-  
+  <!-- Fixed action button at lower right hand corner -->
+
   <div class="fixed-action-btn">
     <a class="btn-floating btn-large white darken-4">
       <i class="large material-icons grey-text">menu</i>
     </a>
     <ul>
       <li><a href="index.html" class="btn-floating grey lighten-1"><i class="material-icons">home</i></a></li>
-      <li><a class="btn-floating grey darken-3"><i class="material-icons">favorite</i></a></li>
+      <li><a href="index4.html" class="btn-floating grey darken-3"><i class="material-icons">favorite</i></a></li>
     </ul>
   </div>
 
 
 
+<!-- Container for main content of page -->
 
   <div class="container">
     <div class="slider">
+
+    <!-- Slider for index 1 with two slides -->
+    
       <ul class="slides transparent">
-  
+
+        <!-- First slide -->
+
         <li>
           <img src="#">
           <div class="caption center-align">
@@ -58,12 +72,17 @@
             <h5 class="light black-text text-lighten-3 center-align">Fitness + meal plan system. </h5>
           </div>
         </li>
+
+         <!-- Second slide -->
   
         <li>
             <img src="#">
             <div class="caption center-align" id="header-slider">
               <br><br><br><br><br>
               <h3 class="orange-text darken-3" id="index2-slider2">Maximize your salud.</h3>
+              
+              <!-- Let's get started button -->
+
               <h5 class="light black-text text-lighten-3"><div class="container center-align">
                   <button class="center-align waves-effect waves-orange btn-flat black-text" id="start-button"><a href="index2.html"><i class="material-icons center">subdirectory_arrow_right</i>Let's get started</a></button>
                 </div></h5>
@@ -84,13 +103,12 @@
     <div class="row">
       <div class="col l8">
         <h5>About Us</h5>
-        <p>Salusys was created by three really cool cats currently working to become Full Stack Developers.</p>
-      </div>
+        <p>Salusys is a simple yet effective product developed to facilitate your way to a healthy life style change.</p>
+      </div> 
 
       <div class="col l4">
           <h5>Connect</h5>
           <ul>
-            <li><a href="#" class="grey-text text-lighten-3">LinkedIn</a></li>
             <li><a href="#" class="grey-text text-lighten-3">Email</a></li>
           </ul>
       </div>
@@ -99,7 +117,7 @@
 </footer>
 
 
-
+ <!-- Compiled and minified JavaScript -->
     <script type="text/javascript" src="assets/javascript/js/materialize.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 

@@ -131,7 +131,7 @@ $(document).ready(function () {
         });
 
     }
-
+    
     function getExercise(id) {
 
         //exercise api call
@@ -194,7 +194,7 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
 
     $(".modal").modal();
-
+    
     //
     //
     //
