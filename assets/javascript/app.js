@@ -1,17 +1,11 @@
 $(document).ready(function () {
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyAJ7R5RZ30596-0rhCKyrWrUx97oWkGcPA",
-        authDomain: "rmm-salusys.firebaseapp.com",
-        databaseURL: "https://rmm-salusys.firebaseio.com",
-        projectId: "rmm-salusys",
-        storageBucket: "",
-        messagingSenderId: "601851303455"
-    };
-    firebase.initializeApp(config);
+
+    firebase.initializeApp(firebaseConfig);
 
     //global variables
     var database = firebase.database();
+    var foodKey = foodConfig.foodAPI;
+    console.log(foodKey);
 
     //
     //
@@ -30,7 +24,7 @@ $(document).ready(function () {
             url: queryURL,
             dataType: "json",
             headers: {
-                'X-RapidAPI-Key': "cabf872889msh67628a4bb120a43p1a985djsn773dfb9ac0e5"
+                'X-RapidAPI-Key': foodKey
                 // 'Accept: application/json' 
             }
         }).done(function (response) {
@@ -66,7 +60,7 @@ $(document).ready(function () {
             url: queryURL,
             dataType: "json",
             headers: {
-                'X-RapidAPI-Key': "cabf872889msh67628a4bb120a43p1a985djsn773dfb9ac0e5"
+                'X-RapidAPI-Key': foodKey
                 // 'Accept: application/json' 
             }
         }).done(function (response) {
@@ -107,7 +101,7 @@ $(document).ready(function () {
             url: queryURL,
             dataType: "json",
             headers: {
-                'X-RapidAPI-Key': "cabf872889msh67628a4bb120a43p1a985djsn773dfb9ac0e5"
+                'X-RapidAPI-Key': foodKey
                 // 'Accept: application/json' 
             }
         }).done(function (response) {
